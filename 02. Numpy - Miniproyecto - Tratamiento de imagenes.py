@@ -135,9 +135,12 @@ def detectar_bordes(imagen_array):
 # Cargar la imagen
 # Si la imagen es en color, shape=resX, resY, 3 (RGB)
 # Si la imagen es en escala de grises, shape=resX, resY
-directorio = os.path.join(os.getcwd(),"imagenes","monedas.jpg")
+print("Para usar la aplicación debes de meter un archivo en la carpeta imagenes y decir el nombre a continuación \n")
+nombre = input("Indica con el siguiente formato nombre_del_archivo.extensión: ")
+directorio = os.path.join(os.getcwd(),"imagenes",nombre)
 imagen = Image.open(directorio)
 imagen_array = np.array(imagen)
+imagen_array=imagen_array[:,:,:3]
 
 # Aplicar transformaciones
 imagen_brillo = ajustar_brillo(imagen_array, 50)
