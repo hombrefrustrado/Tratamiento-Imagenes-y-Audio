@@ -18,7 +18,7 @@ Este proyecto es parte del curso de Inteligencia Artificial. A continuación, se
     ```    
 2. Navega al directorio del proyecto:
     ```bash
-    cd sampleIn
+    cd Tratamiento-Imagenes-y-Audio
     ```
 3. Instala las dependencias:
     ```bash
@@ -35,7 +35,7 @@ Este proyecto es parte del curso de Inteligencia Artificial. A continuación, se
     
 3. Sigue las instrucciones en la consola para cargar los datos y configurar los parámetros.
 Para editar audios sigue el mismo procedimiento
-# Haz lo mismo pero para los audios
+1. Haz lo mismo pero para los audios
     ```bash
     python '02. Numpy - Miniproyecto - Tratamiento de audio.py'
     ```
