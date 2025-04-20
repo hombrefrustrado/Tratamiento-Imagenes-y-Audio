@@ -84,13 +84,17 @@ def aplicar_eco(data, delay=5000, factor_eco=0.5):
 # Cargar el archivo WAV
 
 rutaBase= os.path.join(os.getcwd(),"audios")
-ficheroEntrada = os.path.join(rutaBase, 'sampleIn.wav')
-ficheroSalidaGraves = os.path.join(rutaBase, 'sampleOutGraves.wav')
-ficheroSalidaAgudos = os.path.join(rutaBase, 'sampleOutAgudos.wav')
-ficheroSalidaInvertida = os.path.join(rutaBase, 'sampleOutInv.wav')
-ficheroSalidaSubidaVolumen = os.path.join(rutaBase, 'sampleOutSubidaVol.wav')
-ficheroSalidaBajadaVolumen = os.path.join(rutaBase, 'sampleOutBajadaVol.wav')
-ficheroSalidaEco = os.path.join(rutaBase, 'sampleOutEco.wav')
+print("Asegurate de que el archivo que quieres editar se encuentra en la carpeta \'audios\'\n")
+archivo = input("Introduzca el nombre del archivo que quieras editar junto a su extensión: ")
+nombre_archivo=archivo.split('.')
+ficheroEntrada = os.path.join(rutaBase, archivo)
+str.strip(archivo)
+ficheroSalidaGraves = os.path.join(rutaBase, nombre_archivo[0] + 'OutGraves.wav')
+ficheroSalidaAgudos = os.path.join(rutaBase, nombre_archivo[0] + 'OutAgudos.wav')
+ficheroSalidaInvertida = os.path.join(rutaBase, nombre_archivo[0] + 'OutInv.wav')
+ficheroSalidaSubidaVolumen = os.path.join(rutaBase, nombre_archivo[0] + 'OutSubidaVol.wav')
+ficheroSalidaBajadaVolumen = os.path.join(rutaBase, nombre_archivo[0] + 'OutBajadaVol.wav')
+ficheroSalidaEco = os.path.join(rutaBase, nombre_archivo[0] + 'OutEco.wav')
 
 fs, data = wavfile.read(ficheroEntrada)
 
