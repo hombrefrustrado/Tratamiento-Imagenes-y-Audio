@@ -23,8 +23,7 @@ def aumentar_graves(data, window_size=101):
         end = min(len(data), i + half_window + 1)
         ##### Aquí debes incluir la línea de código que calcula la media móvil de un punto
         ##### y lo almacena en el nuevo array filtered_data
-        media_movil=np.mean(data[start:end])
-        filtered_data[i]=media_movil
+        filtered_data[i]=np.mean(data[start:end])
    
     return filtered_data
 
@@ -55,8 +54,7 @@ def aumentar_agudos(data, window_size=101):
 
 def invertir_senal(data):
     #### Aquí debes incluir la línea (con return) que devuelve la señal invertida
-    inverted_data = data[::-1]
-    return inverted_data
+    return data[::-1]
 
 def cambiar_volumen(data, ganancia=1.5):
     #### Aquí debes incluir la línea (con return) que devuelve la señal con el volumen cambiado
@@ -70,16 +68,21 @@ def aplicar_eco(data, delay=5000, factor_eco=0.5):
     #### Rellenamos las "delay" primeras muestras, ya que no tienen audio de eco de referencia
     #### Reducimos de volumen la señal eco
     #### La sumamos a la señao original
-    
+    #eco[:delay]=0
+    #eco = np.roll(data, delay)
+    #eco *= factor_eco
+    #return data + eco
+
+
+
+
     # Opción 2 (cada #### es una línea de código)
     #### Creamos una señal de eco con valores 0
     #### Recalculamos la señal de eco multiplicando la original por el factor de volumen y la desplazamos
     #### Sumamos la señal original al eco.
-    eco = np.zeros(len(data)+delay,dtype=np.float32)
-    volumen_cambiado=cambiar_volumen(data,factor_eco)
-    eco[delay:]=volumen_cambiado[:]
-    eco_signal=eco[:len(data)]+data
-    return eco_signal
+    eco = np.zeros_like(data)
+    eco[delay:]=data[:-delay]*factor_eco
+    return data+eco
 
 # Cargar el archivo WAV
 
